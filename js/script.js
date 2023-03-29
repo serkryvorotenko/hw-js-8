@@ -1,3 +1,12 @@
+const addNewStudent = () => {
+    test.push({
+        name: 'Serhii',
+        specialty: 'student',
+        marks: [1, 23, 34, 66, 78, 98, 56, 87, 45, 34, 56, 23, 12, 34, 90, 87, 67]
+    });
+    return test;
+};
+
 const getAverage = (numbers) => {
     const sum = numbers.reduce((acc, number) => acc + number, 0);
     const length = numbers.length;
@@ -18,7 +27,8 @@ const setStudentsAverage = () => {
 };
 
 const getListOfStudentsOnWithdrawal = () => {
-    return test.filter((el, index) => {
+    const testCopy = test;
+    return testCopy.filter((el, index) => {
         return el.average < 50;
     });
 };
@@ -31,25 +41,19 @@ const setStudentsMedian = () => {
     return test;
 };
 
-const addNewStudent = () => {
-    test.push({
-        name: 'Serhii',
-        specialty: 'student',
-        marks: [1, 23, 34, 66, 78, 98, 56, 87, 45, 34, 56, 23, 12, 34, 90, 87, 67]
-    });
-    return test;
-};
-
 const sortStudents = () => {
-    return test.sort((a, b) => {
+    const testCopy = test;
+    return testCopy.sort((a, b) => {
         return b.average - a.average;
     });
 };
 
 const getTopStudents = () => {
-    return test.slice(0, 5)
+    const testCopy = sortStudents();
+    return testCopy.slice(0, 5);
 };
 
+console.log(addNewStudent());
 
 console.log(setStudentsAverage());
 
@@ -57,8 +61,9 @@ console.log(getListOfStudentsOnWithdrawal());
 
 console.log(setStudentsMedian());
 
-console.log(addNewStudent());
-
 console.log(sortStudents());
 
 console.log(getTopStudents());
+
+
+
